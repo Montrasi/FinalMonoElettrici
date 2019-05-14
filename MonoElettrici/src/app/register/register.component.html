@@ -1,0 +1,28 @@
+
+
+<div class='modal-header'>
+  <h4 class='modal-title' id='modal-basic-title'>Inserisci i dati per registrarti</h4>
+  <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
+
+</div>
+
+  <form>
+    <div class='modal-body'>
+      <div class='form-group'>
+        <div class='input-group'>
+          <input #name type='text' class="w3-input" placeholder='Inserisci il tuo nome'> <br>
+          <input #surname type='text' class="w3-input" placeholder='Inserisci il tuo cognome'> <br>
+          <input #email type='email' class="w3-input" placeholder='Inserisci la tua email'> <br>
+          <input #user type='text' class="w3-input" placeholder='Inserisci il tuo nome utente'> <br>
+          <input #pass type='text' class="w3-input" placeholder='Inserisci password'> <br>
+        </div>
+      </div>
+    </div>
+
+    <div class='modal-footer'>
+      <p style='margin-right: 30%'>{{error}}</p>
+      <input type='submit' class='btn btn-primary' (click)='onClickReg(name, surname, email, user, pass)' value='Registrati'>
+    </div>
+  </form>
+
+

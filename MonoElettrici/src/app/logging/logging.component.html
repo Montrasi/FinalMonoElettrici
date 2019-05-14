@@ -1,0 +1,23 @@
+
+
+<div class='modal-header'>
+  <h4 class='modal-title' id='modal-basic-title'>Enter in the world of the Monopattini (WIP)</h4>
+  <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
+
+</div>
+<div class='modal-body'>
+  <form>
+    <div class='form-group'>
+      <div class='input-group' >
+        <input #user type='text' class="w3-input" placeholder='Inserisci il tuo nome utente'> <br>
+        <input #pass type='text' class="w3-input" placeholder='Inserisci password'> <br>
+        <!--  <input type='submit' (click)='onClickReg(name, surname, email, user, pass)' value='Register'> -->
+      </div>
+    </div>
+    <div class='modal-footer'>
+      <input type='submit' class='btn btn-default' (click)='onClickReg(name, surname, email, user, pass)' value='Accedi'>
+      <a href='#modal-2' style='color: white' data-toggle='modal' data-dismiss='modal'><button type='button' class='btn btn-primary'>Registrati</button></a>
+    </div>
+  </form>
+</div>
+

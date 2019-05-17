@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -34,8 +34,8 @@ export class RegisterComponent implements OnInit {
         'user': user.value,
         'pass': pass.value
       }),
-       {
-          headers: new HttpHeaders ({
+        {
+          headers: new HttpHeaders({
             'Content-Type': 'application/json',
             'X-Requested-With': 'XMLHttpRequest',
             'Access-Control-Allow-Origin': '*'
@@ -43,12 +43,12 @@ export class RegisterComponent implements OnInit {
         }).subscribe(data => {
           console.log(data)
 
-          if(data == true){
+          if (data == true) {
             this.AppComp.messageEvent(user.value);
             this.error = 'registrazione effettuata con successo';
-          }else{
+          } else {
             this.error = "registrazione non ha avuto successo";
-        }
+          }
 
         });
     }

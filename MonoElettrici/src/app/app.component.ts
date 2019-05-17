@@ -22,9 +22,7 @@ export class AppComponent {
 
 
 
-  constructor(private modalService: NgbModal) {
-    localStorage.setItem('currentUser',  JSON.stringify('Accedi'));
-  }
+  constructor(private modalService: NgbModal) { }
 
 
   /* Instruction control Modal box Log in or Register */

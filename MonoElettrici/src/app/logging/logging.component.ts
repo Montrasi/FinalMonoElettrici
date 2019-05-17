@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppComponent } from '../app.component';
 
 import * as DirectToCod from '../StringHTTP_ToCodeny';
+import * as $ from 'jquery';
 
 
 @Component({
@@ -13,11 +14,13 @@ import * as DirectToCod from '../StringHTTP_ToCodeny';
 })
 export class LoggingComponent implements OnInit {
 
-  data: string;
+  data: boolean;
   error: string;
   temp: any;
 
   constructor(public http: HttpClient, private AppComp: AppComponent) { }
+
+
 
 
   onClickLog(user: HTMLInputElement, pass: HTMLInputElement): boolean {
@@ -30,30 +33,41 @@ export class LoggingComponent implements OnInit {
         'user': user.value,
         'pass': pass.value
       }),
-       {
-          headers: new HttpHeaders ({
+        {
+          headers: new HttpHeaders({
             'Content-Type': 'application/json',
             'X-Requested-With': 'XMLHttpRequest',
             'Access-Control-Allow-Origin': '*'
           })
         }).subscribe(data => {
-        console.log('data : ' + data);
+          console.log('data : ' + data);
 
-        if(data == 'ko'){
-          this.AppComp.messageEvent(user.value);
-          this.error = 'login effettuato con successo';
-        }else{
-          this.error = "l'utente non è stato trovato";
-        }
+          if (data == true) {
+            this.AppComp.messageEvent(user.value);
+            this.error = 'login effettuato con successo';
+          } else {
+            this.error = "l'utente non è stato trovato";
+          }
 
-        localStorage.setItem('currentUser',  JSON.stringify(user.value));
+          localStorage.setItem('currentUser', JSON.stringify(user.value));
 
-    })
+        })
     }
     return false;
   }
 
+
+
+
   ngOnInit() {
     console.log('Component login');
+
+
+    $(document).ready(function() {
+      alert('fdsfsadsad');
+    });
+
+
+
   }
 }

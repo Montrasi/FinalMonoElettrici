@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+
+import { AppComponent } from '../app.component';
+
+import * as DirectToCod from '../StringHTTP_ToCodeny';
 
 @Component({
   selector: 'app-register',
@@ -14,15 +18,16 @@ export class RegisterComponent implements OnInit {
   o: Observable<Object>;
   error: string;
 
-  constructor(public http: HttpClient, private modalService: NgbModal) { }
 
-  onClickReg(name: HTMLInputElement, surname: HTMLInputElement, email: HTMLInputElement, user: HTMLInputElement, pass: HTMLInputElement): void {
+  constructor(public http: HttpClient, private modalService: NgbModal, private AppComp: AppComponent) { }
+
+  onClickReg(name: HTMLInputElement, surname: HTMLInputElement, email: HTMLInputElement, user: HTMLInputElement, pass: HTMLInputElement): boolean {
 
     if (name.value == '' || surname.value == '' || email.value == '' || user.value == '' || pass.value == '') {
       this.error = ('Tutti i campi sono obbligatori!');
       console.log(this.error)
     } else {
-      this.http.post('http://node12.codenvy.io:48876/register', JSON.stringify({
+      this.http.post(DirectToCod.AccessHttp + 'register', JSON.stringify({
         'name': name.value,
         'surname': surname.value,
         'email': email.value,
@@ -37,12 +42,21 @@ export class RegisterComponent implements OnInit {
           })
         }).subscribe(data => {
           console.log(data)
+
+          if(data == true){
+            this.AppComp.messageEvent(user.value);
+            this.error = 'registrazione effettuata con successo';
+          }else{
+            this.error = "registrazione non ha avuto successo";
+        }
+
         });
     }
+    return false;
   }
 
   ngOnInit() {
-
-
+    console.log('Component register');
+    //this.AppComponent.Access = JSON.parse(localStorage.getItem('currentUser'));
   }
 }

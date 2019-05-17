@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component  } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @Component({
@@ -9,9 +10,22 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppComponent {
   name = 'Angular';
-  public isViewable: boolean;
 
-  constructor(private modalService: NgbModal) { }
+  Access: string;/*= 'Accedi'*/
+  dataStr: string = '';
+
+
+  messageEvent(Currentuser: string) {
+    //console.log('Ciaooooo ' + Currentuser)
+    this.Access = Currentuser;
+  }
+
+
+
+  constructor(private modalService: NgbModal) {
+    localStorage.setItem('currentUser',  JSON.stringify('Accedi'));
+  }
+
 
   /* Instruction control Modal box Log in or Register */
 
@@ -19,13 +33,12 @@ export class AppComponent {
     this.modalService.open(content);
   }
 
-  ngOnInit() {
-    this.isViewable = true;
-  }
-
   public toggle(content): void {
     this.modalService.dismissAll(content);
-    this.isViewable = !this.isViewable;
+  }
+
+  ngOnInit() {
+    this.Access = JSON.parse(localStorage.getItem('currentUser'));
   }
 
 }

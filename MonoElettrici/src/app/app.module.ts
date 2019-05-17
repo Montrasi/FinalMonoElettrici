@@ -28,4 +28,7 @@ import { RegisterComponent } from './register/register.component';
     AppComponent
   ]
 })
-export class AppModule { }
+
+export class AppModule {
+
+}

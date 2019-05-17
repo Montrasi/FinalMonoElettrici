@@ -24,6 +24,6 @@ export class MappingComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    console.log('Component mapping');
   }
 }

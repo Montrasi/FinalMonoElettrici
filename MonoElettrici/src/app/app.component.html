@@ -1,17 +1,27 @@
-
-<nav class='navbar navbar-expand-sm'>
+<nav class='navbar'>
 	<h2 style='flex: 1 1 auto'> Monopattini Elettrici </h2>
 
 
+	<div class="dropdown">
+		<button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"> Devo trovare un nome(WIP) </button>
+    <ul class="dropdown-menu dropdown-menu-right">
+      <li class="dropdown-header">salve</li>
+      <li><a href="#" data-toggle='modal' data-target='#modal-1'>Accedi</a></li>
+      <li><a href="#">Cerca in zona</a></li>
+      <li class="divider"></li>
+      <li class="dropdown-header">References</li>
+      <li><a href="#">About Us</a></li>
+    </ul>
+  </div>
 
-	<button type='button' class='btn btn-secondary' data-toggle='modal' data-target='#modal-1' > {{ Access }} </button>
+	<!--<button type='button' class='btn btn-secondary' data-toggle='modal' data-target='#modal-1' > {{ Access }} </button>-->
+
 </nav>
 
 
 
 
 <app-mapping></app-mapping>
-
 
 
 <div class='modal fade' id='modal-1'>
@@ -30,4 +40,3 @@
     </div>
   </div>
 </div>
-

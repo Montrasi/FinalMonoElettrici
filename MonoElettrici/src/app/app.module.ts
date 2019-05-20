@@ -8,9 +8,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { MappingComponent } from './mapping/mapping.component';
 import { LoggingComponent } from './logging/logging.component';
 import { RegisterComponent } from './register/register.component';
+import { VehiclesComponent } from './vehicles/vehicles.component';
 
 @NgModule({
-  imports:      [
+  imports: [
     BrowserModule,
     NgbModule,
     AgmCoreModule.forRoot({
@@ -24,7 +25,7 @@ import { RegisterComponent } from './register/register.component';
     LoggingComponent,
     RegisterComponent
   ],
-  bootstrap:    [
+  bootstrap: [
     AppComponent
   ]
 })

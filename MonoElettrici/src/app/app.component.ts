@@ -11,9 +11,8 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class AppComponent {
   name = 'Angular';
 
-  Access: string;/*= 'Accedi'*/
+  Access: string;
   dataStr: string = '';
-
 
   messageEvent(Currentuser: string) {
     //console.log('Ciaooooo ' + Currentuser)
@@ -37,6 +36,9 @@ export class AppComponent {
 
   ngOnInit() {
     this.Access = JSON.parse(localStorage.getItem('currentUser'));
+
+    if(this.Access != ''){ this.Access = 'Accedi' }
+
   }
 
 }

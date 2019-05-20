@@ -1,4 +1,11 @@
 
-<agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
-  <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
+<agm-map [latitude]=lat [zoom]=zoom [longitude]=lng>
+  <agm-marker [latitude]=lat [longitude]=lng></agm-marker> <!-- POSIZIONE ATTUALE -->
+
+		<!--<agm-marker [latitude]=latVhc [longitude]=lngVhc>
+		agm-info-window> {{ value }} </agm-info-window>
+	</agm-marker>-->
+  
 </agm-map>
+
+<p>lat: {{latVcl}} || lng: {{lngVcl}}   </p>   

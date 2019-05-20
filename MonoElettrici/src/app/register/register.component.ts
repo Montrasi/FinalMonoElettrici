@@ -1,9 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from '../app.component';
 
@@ -15,9 +14,8 @@ import * as DirectToCod from '../StringHTTP_ToCodeny';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  o: Observable<Object>;
-  error: string;
 
+  error: string;
 
   constructor(public http: HttpClient, private modalService: NgbModal, private AppComp: AppComponent) { }
 

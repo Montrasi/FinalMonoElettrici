@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { AppComponent } from '../app.component';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+
+//import { logger } from './logger.model';
 
 import * as DirectToCod from '../StringHTTP_ToCodeny';
 import * as $ from 'jquery';
@@ -15,19 +18,17 @@ import * as $ from 'jquery';
 export class LoggingComponent implements OnInit {
 
   data: boolean;
-  error: string;
-  temp: any;
+  result: any;
 
-  constructor(public http: HttpClient, private AppComp: AppComponent) { }
-
-
-
+  constructor(private http: HttpClient, private AppComp: AppComponent, /*private log: logger*/) { }
 
   onClickLog(user: HTMLInputElement, pass: HTMLInputElement): boolean {
     if (user.value == '' || pass.value == '') {
-      this.error = ('Tutti i campi sono obbligatori!');
-      console.log(this.error)
+      this.result = ('Tutti i campi sono obbligatori!');
+      console.log(this.result)
     } else {
+
+      //this.result = this.log.logging(user.value, pass.value);
 
       this.http.post(DirectToCod.AccessHttp + 'login', JSON.stringify({
         'user': user.value,
@@ -44,9 +45,9 @@ export class LoggingComponent implements OnInit {
 
           if (data == true) {
             this.AppComp.messageEvent(user.value);
-            this.error = 'login effettuato con successo';
+            this.result = 'login effettuato con successo';
           } else {
-            this.error = "l'utente non è stato trovato";
+            this.result = "l'utente non è stato trovato";
           }
 
           localStorage.setItem('currentUser', JSON.stringify(user.value));
@@ -63,9 +64,9 @@ export class LoggingComponent implements OnInit {
     console.log('Component login');
 
 
-    $(document).ready(function() {
-      alert('fdsfsadsad');
-    });
+    /*$(document).ready(function() {
+
+    });*/
 
 
 

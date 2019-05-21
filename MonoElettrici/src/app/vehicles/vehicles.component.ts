@@ -14,7 +14,7 @@ export class VehiclesComponent implements OnInit {
   data: Object[];
 
   constructor(public http: HttpClient) {
-    this.http.get<Object[]>(DirectToCod.AccessHttp + 'getVeicoli')
+    this.http.get<Object[]>(DirectToCod.AccessHttp_MonoOffice + 'getVeicoli')
       .subscribe(data => {
         this.data = data;
         console.log(this.data)

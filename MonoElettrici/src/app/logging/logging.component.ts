@@ -30,7 +30,7 @@ export class LoggingComponent implements OnInit {
 
       //this.result = this.log.logging(user.value, pass.value);
 
-      this.http.post(DirectToCod.AccessHttp + 'login', JSON.stringify({
+      this.http.post(DirectToCod.AccessHttp_MonoPattini + 'login', JSON.stringify({
         'user': user.value,
         'pass': pass.value
       }),

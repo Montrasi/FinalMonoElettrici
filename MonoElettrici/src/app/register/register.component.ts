@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
       this.error = ('Tutti i campi sono obbligatori!');
       console.log(this.error)
     } else {
-      this.http.post(DirectToCod.AccessHttp + 'register', JSON.stringify({
+      this.http.post(DirectToCod.AccessHttp_MonoPattini + 'register', JSON.stringify({
         'name': name.value,
         'surname': surname.value,
         'email': email.value,

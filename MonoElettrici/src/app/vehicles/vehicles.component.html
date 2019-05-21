@@ -1,1 +1,6 @@
-
+<agm-marker *ngFor='let value of data' [latitude]='value.pos[0].lat' [longitude]='value.pos[0].lng'>
+	<agm-info-window>
+    <b>Monopattito: {{value.tag}}</b>
+    <p>status: {{value.state}}</p>
+  </agm-info-window>
+</agm-marker>

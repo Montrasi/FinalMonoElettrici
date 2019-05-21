@@ -10,22 +10,14 @@ import * as DirectToCod from '../StringHTTP_ToCodeny';
 })
 export class VehiclesComponent implements OnInit {
 
-  data: any;
-  obj: object;
+  latVhc: any; lngVhc: any; value: any;
+  data: Object[];
 
-  constructor(public http: HttpClient) { }
-
-  getValue() {
-
-    this.http.get(DirectToCod.AccessHttp + 'getVeicoli')
+  constructor(public http: HttpClient) {
+    this.http.get<Object[]>(DirectToCod.AccessHttp + 'getVeicoli')
       .subscribe(data => {
         this.data = data;
-
-        this.data.forEach(element => {
-          this.obj = { 'tag': element.tag, 'pos': element.pos, 'state': element.state }
-        });
-
-        return this.obj
+        console.log(this.data)
 
       })
 

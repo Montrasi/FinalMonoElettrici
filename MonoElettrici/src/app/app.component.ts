@@ -1,6 +1,5 @@
 import { Component  } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({

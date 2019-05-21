@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
 
   error: string;
 
-  constructor(public http: HttpClient, private modalService: NgbModal, private AppComp: AppComponent) { }
+  constructor(public http: HttpClient, private AppComp: AppComponent) { }
 
   onClickReg(name: HTMLInputElement, surname: HTMLInputElement, email: HTMLInputElement, user: HTMLInputElement, pass: HTMLInputElement): boolean {
 

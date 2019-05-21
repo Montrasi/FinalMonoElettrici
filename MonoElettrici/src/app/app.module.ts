@@ -23,7 +23,8 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
     AppComponent,
     MappingComponent,
     LoggingComponent,
-    RegisterComponent
+    RegisterComponent,
+    VehiclesComponent
   ],
   bootstrap: [
     AppComponent

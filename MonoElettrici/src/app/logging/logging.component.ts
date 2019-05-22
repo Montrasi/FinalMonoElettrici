@@ -3,12 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-
-//import { logger } from './logger.model';
-
 import * as DirectToCod from '../StringHTTP_ToCodeny';
-import * as $ from 'jquery';
-
+//import * as $ from 'jquery';
 
 @Component({
   selector: 'app-logging',
@@ -28,8 +24,6 @@ export class LoggingComponent implements OnInit {
       console.log(this.result)
     } else {
 
-
-
       this.http.post(DirectToCod.AccessHttp_MonoPattini + 'login', JSON.stringify({
         'user': user.value,
         'pass': pass.value
@@ -41,7 +35,7 @@ export class LoggingComponent implements OnInit {
             'Access-Control-Allow-Origin': '*'
           })
         }).subscribe(data => {
-          console.log('data : ' + data);
+          //console.log('data : ' + data);
 
           if (data == true) {
             this.AppComp.messageEvent(user.value);
@@ -50,7 +44,7 @@ export class LoggingComponent implements OnInit {
             this.result = "l'utente non è stato trovato";
           }
 
-          localStorage.setItem('currentUser', JSON.stringify(user.value));
+          localStorage.setItem('currentUser', user.value);
 
         })
     }
@@ -60,15 +54,5 @@ export class LoggingComponent implements OnInit {
 
 
 
-  ngOnInit() {
-    console.log('Component login');
-
-
-    /*$(document).ready(function() {
-
-    });*/
-
-
-
-  }
+  ngOnInit() { console.log('Component login'); }
 }

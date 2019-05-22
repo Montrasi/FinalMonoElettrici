@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
 import { AppComponent } from '../app.component';
 
 import * as DirectToCod from '../StringHTTP_ToCodeny';

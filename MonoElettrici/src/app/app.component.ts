@@ -1,6 +1,6 @@
-import { Component  } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component } from '@angular/core'
 
+import * as $ from 'jquery'
 
 @Component({
   selector: 'my-app',
@@ -8,23 +8,31 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  name = 'Angular';
+  name = 'Angular'
 
-  Accedi: string;
-  dataStr: string = '';
-
+  Accedi: string
+  notDisable: boolean
 
   constructor() { }
 
   messageEvent(Currentuser: string) {
     //console.log('Ciaooooo ' + Currentuser)
-    this.Accedi = Currentuser;
+    this.Accedi = Currentuser
   }
 
   ngOnInit() {
-    this.Accedi = JSON.parse(localStorage.getItem('currentUser'));
 
-    if(this.Accedi != ''){ this.Accedi = 'Accedi' }
+    this.Accedi = localStorage.getItem('currentUser')
+    console.log('caiooooooooooooo ' + this.Accedi)
+
+    if (this.Accedi == null) {
+      this.Accedi = 'Accedi'
+      this.notDisable = false
+    } else {
+      this.notDisable = false
+    }
+
+    $(document).ready(function() { })
 
   }
 

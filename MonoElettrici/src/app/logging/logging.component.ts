@@ -20,7 +20,7 @@ export class LoggingComponent implements OnInit {
   data: boolean;
   result: any;
 
-  constructor(private http: HttpClient, private AppComp: AppComponent, /*private log: logger*/) { }
+  constructor(private http: HttpClient, private AppComp: AppComponent) { }
 
   onClickLog(user: HTMLInputElement, pass: HTMLInputElement): boolean {
     if (user.value == '' || pass.value == '') {
@@ -28,7 +28,7 @@ export class LoggingComponent implements OnInit {
       console.log(this.result)
     } else {
 
-      //this.result = this.log.logging(user.value, pass.value);
+
 
       this.http.post(DirectToCod.AccessHttp_MonoPattini + 'login', JSON.stringify({
         'user': user.value,

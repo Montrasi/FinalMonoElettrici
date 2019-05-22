@@ -7,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MappingComponent implements OnInit {
 
-  lat: any; lng: any;
+  lat: any; lng: any; iconPosOmino: any;
   value: string;
   zoom: number = 15;
-  icon: any;
 
   constructor() {
     if (navigator) {
@@ -19,7 +18,7 @@ export class MappingComponent implements OnInit {
         this.lng = +pos.coords.longitude;
       });
     }
-    this.icon = {
+    this.iconPosOmino = {
       url: './assets/images/markerOmino.png',
       scaledSize:{
         width: 75,

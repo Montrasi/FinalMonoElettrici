@@ -10,33 +10,21 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class AppComponent {
   name = 'Angular';
 
-  Access: string;
+  Accedi: string;
   dataStr: string = '';
+
+
+  constructor() { }
 
   messageEvent(Currentuser: string) {
     //console.log('Ciaooooo ' + Currentuser)
-    this.Access = Currentuser;
-  }
-
-
-
-  constructor(private modalService: NgbModal) { }
-
-
-  /* Instruction control Modal box Log in or Register */
-
-  open(content) {
-    this.modalService.open(content);
-  }
-
-  public toggle(content): void {
-    this.modalService.dismissAll(content);
+    this.Accedi = Currentuser;
   }
 
   ngOnInit() {
-    this.Access = JSON.parse(localStorage.getItem('currentUser'));
+    this.Accedi = JSON.parse(localStorage.getItem('currentUser'));
 
-    if(this.Access != ''){ this.Access = 'Accedi' }
+    if(this.Accedi != ''){ this.Accedi = 'Accedi' }
 
   }
 

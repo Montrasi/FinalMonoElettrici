@@ -10,7 +10,7 @@ import * as DirectToCod from '../StringHTTP_ToCodeny';
 })
 export class VehiclesComponent implements OnInit {
 
-  latVhc: any; lngVhc: any; value: any;
+  latVhc: any; lngVhc: any; value: any; iconPosPattino: any;
   data: Object[];
 
   constructor(public http: HttpClient) {
@@ -20,6 +20,14 @@ export class VehiclesComponent implements OnInit {
         console.log(this.data)
 
       })
+
+      this.iconPosPattino = {
+      url: './assets/images/markerPattino.png',
+      scaledSize:{
+        width: 75,
+        height: 75
+      }
+    }
 
   }
 

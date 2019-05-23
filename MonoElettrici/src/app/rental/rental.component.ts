@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import * as DirectToCod from '../StringHTTP_ToCodeny';
 
@@ -27,7 +26,7 @@ export class RentalComponent implements OnInit {
     console.log(this.currentDay + ' ' + this.currentTime + ' ' + tagVhc);
 
     /*this.http.post(DirectToCod.AccessHttp_MonoPattini + 'getRental', {
-      'tag': tagVhc.value,
+      'tag': tagVhc,
       'state': this.state,
       'date':  this.currentTime,
       'time': this.currentDay

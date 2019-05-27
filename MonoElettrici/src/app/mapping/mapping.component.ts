@@ -14,10 +14,8 @@ export class MappingComponent implements OnInit {
   constructor() {
     if (navigator) {
       navigator.geolocation.getCurrentPosition(pos => {
-        //this.lat = +pos.coords.latitude
-        //this.lng = +pos.coords.longitude
-        this.lat = 45.540014
-        this.lng = 9.132803
+        this.lat = +pos.coords.latitude             //this.lat = 45.540014
+        this.lng = +pos.coords.longitude            //this.lng = 9.132803
       });
     }
     this.iconPosOmino = {

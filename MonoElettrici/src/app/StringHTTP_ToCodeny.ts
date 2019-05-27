@@ -1,3 +1,3 @@
 
-export const AccessHttp_MonoPattini ='https://3000-b1a760fc-2bb7-456c-ba53-99b17e3e08b5.ws-eu0.gitpod.io/';
-export const AccessHttp_MonoOffice = 'https://3000-e8c07b50-eaee-42ff-ab68-92681b733a4e.ws-eu0.gitpod.io/';
+export const AccessHttp_MonoPattini ='https://3000-fbc718d3-e0c3-4b45-9701-a85114e9cc25.ws-eu0.gitpod.io/';
+export const AccessHttp_MonoOffice = 'https://3000-d5ba9ff7-83f7-4324-99aa-85d3bfc932b0.ws-eu0.gitpod.io/';

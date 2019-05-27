@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import * as DirectToCod from '../StringHTTP_ToCodeny';
@@ -11,30 +11,55 @@ import * as DirectToCod from '../StringHTTP_ToCodeny';
 export class RentalComponent implements OnInit {
 
   /*NOLEGGIO*/
+  @Input() value: any
+  @Input() btnVal: string
 
-  currentTime: any; currentDay: any;
-  state: boolean;
   Rental: string = 'Noleggia';
-  data = new Date();
+  currentUser: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
 
-  onRental(tagVhc: HTMLInputElement) {
-    this.currentTime = this.data.getHours() + ':' + this.data.getMinutes() + ':' + this.data.getSeconds()
-    this.currentDay = this.data.getMonth() + '/' + this.data.getDate() + '/' + this.data.getFullYear();
+    console.log(this.btnVal)
+    //if(this.value.state == false ) { this.Rental == 'Noleggia' } else { this.Rental == 'Fine noleggio' }
 
-    console.log(this.currentDay + ' ' + this.currentTime + ' ' + tagVhc);
+  }
 
-    /*this.http.post(DirectToCod.AccessHttp_MonoPattini + 'getRental', {
-      'tag': tagVhc,
-      'state': this.state,
-      'date':  this.currentTime,
-      'time': this.currentDay
-    }).subscribe(data => {
-        console.log('data Noleggio : ' + data);
-      })*/
-    }
+  onRental() {
 
+    this.currentUser = localStorage.getItem('currentUser')
+    console.log(this.currentUser);
+
+    if (this.currentUser != null) {
+      if (this.value.state == false) {
+        console.log('vdsdfgsdgsdgsdgfdgfdg');
+        var temp = new Date();
+        var currentDayTime = temp.toLocaleDateString().split(',')
+
+        this.http.post(DirectToCod.AccessHttp_MonoPattini + 'getRental', {
+          'tag': this.value,
+          'state': this.value,
+          'date': currentDayTime[0],
+          'time': currentDayTime[1]
+        }).subscribe(data => {
+          console.log('data inizio noleggio : ' + data);
+        })
+      } else {
+        var temp = new Date();
+        var currentDayTime = temp.toLocaleDateString().split(',')
+
+        this.http.post(DirectToCod.AccessHttp_MonoPattini + 'getNotRental', {
+          'tag': this.value,
+          'state': this.value,
+          'date': currentDayTime[0],
+          'time': currentDayTime[1]
+        }).subscribe(data => {
+          console.log('data inizio noleggio : ' + data);
+        })
+      }
+    } else { console.log('Effettua il login!!') }
+
+
+  }
 
   ngOnInit() { console.log('Component rental'); }
 

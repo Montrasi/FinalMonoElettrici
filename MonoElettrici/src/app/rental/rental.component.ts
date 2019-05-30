@@ -1,7 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, Input, } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { VehiclesComponent } from '../vehicles/vehicles.component';
 
 import * as DirectToCod from '../StringHTTP_ToCodeny';
+
 
 @Component({
   selector: 'app-rental',
@@ -17,12 +20,16 @@ export class RentalComponent implements OnInit {
   Rental: string = 'Noleggia';
   currentUser: any;
 
-  constructor(private http: HttpClient) {
+  public message;
 
-    console.log(this.btnVal)
-    //if(this.value.state == false ) { this.Rental == 'Noleggia' } else { this.Rental == 'Fine noleggio' }
+  btnVwYes: boolean; btnVwNot: boolean;
 
+  constructor(private http: HttpClient, private vhcComp: VehiclesComponent) {
+    this.btnVwYes = true;
+    this.btnVwNot = false;
   }
+  //if(this.value.state == false ) { this.Rental == 'Noleggia' } else { this.Rental == 'Fine noleggio' }
+
 
   onRental() {
 
@@ -30,33 +37,59 @@ export class RentalComponent implements OnInit {
     console.log(this.currentUser);
 
     if (this.currentUser != null) {
+      //console.log('riconosco che ti sei registrato!' + this.value.state);
       if (this.value.state == false) {
-        console.log('vdsdfgsdgsdgsdgfdgfdg');
-        var temp = new Date();
-        var currentDayTime = temp.toLocaleDateString().split(',')
 
-        this.http.post(DirectToCod.AccessHttp_MonoPattini + 'getRental', {
-          'tag': this.value,
-          'state': this.value,
+        this.Rental = 'Fine noleggia'
+        this.btnVwYes = false;
+        this.btnVwNot = true;
+
+        var temp = new Date();
+        var currentDayTime = temp.toLocaleString().split(', ')
+
+        this.http.post(DirectToCod.AccessHttp_MonoOffice + 'getRental', {
+          'tag': this.value.tag,
+          'user': this.currentUser,
+          'state': this.value.state,
           'date': currentDayTime[0],
           'time': currentDayTime[1]
         }).subscribe(data => {
-          console.log('data inizio noleggio : ' + data);
+          console.log('sdfsdfsdfsdf');
+          console.log(data);
+          this.vhcComp.GetRental(data);
         })
       } else {
+
+        this.Rental = 'Noleggia'
+        this.btnVwYes = true;
+        this.btnVwNot = false;
+
+
+
         var temp = new Date();
         var currentDayTime = temp.toLocaleDateString().split(',')
 
-        this.http.post(DirectToCod.AccessHttp_MonoPattini + 'getNotRental', {
-          'tag': this.value,
-          'state': this.value,
+
+        this.http.post(DirectToCod.AccessHttp_MonoOffice + 'getRental', JSON.stringify({
+          'tag': this.value.tag/*,
+          'state': this.value.state,
           'date': currentDayTime[0],
-          'time': currentDayTime[1]
-        }).subscribe(data => {
-          console.log('data inizio noleggio : ' + data);
-        })
+          'time': currentDayTime[1]*/
+        }),
+          {
+            headers: new HttpHeaders({
+              'Content-Type': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest',
+              'Access-Control-Allow-Origin': '*'
+            })
+          }).subscribe(data => {
+            console.log('data fine noleggio : ' + data);
+          })
       }
-    } else { console.log('Effettua il login!!') }
+    } else {
+      console.log('Effettua il login!!')
+      this.message = new alert('Effettua il login!!');
+    }
 
 
   }

@@ -1,2 +1,4 @@
 
-<button (click)=onRental() class=btnVal> {{Rental}} </button>
+<button *ngIf=btnVwYes (click)=onRental() class=btnNol> {{Rental}} </button>
+<button *ngIf=btnVwNot (click)=onRental() class=btnNotNol> {{Rental}} </button>
+

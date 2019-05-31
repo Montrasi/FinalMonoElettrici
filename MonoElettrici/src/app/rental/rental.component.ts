@@ -19,6 +19,7 @@ export class RentalComponent implements OnInit {
 
   Rental: string = 'Noleggia';
   currentUser: any;
+  data: any;
 
   public message;
 
@@ -55,8 +56,12 @@ export class RentalComponent implements OnInit {
           'time': currentDayTime[1]
         }).subscribe(data => {
           console.log('sdfsdfsdfsdf');
-          console.log(data);
-          this.vhcComp.GetRental(data);
+          this.data = {
+            'states': data,
+            'tags': this.value.tag
+          }
+          console.log(this.data);
+          this.vhcComp.GetRental(this.data);
         })
       } else {
 

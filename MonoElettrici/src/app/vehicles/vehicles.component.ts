@@ -39,14 +39,14 @@ export class VehiclesComponent implements OnInit {
 
   GetRental(data: Object) {
 
-    console.log('GetRental Recharge ' + data);
+    //console.log('GetRental Recharge ' + data);
 
     $(document).ready(function() {
-      if($('#tags').text() == data){  $('#states').text(data) }
+      if($('#tags').text() == data['tags']){  $('#pippo').text('cacca'/*data['states']*/)}
 
       //RIPARTI DA QUI!!!!
 
-      alert('RIPARTI DA QUI!!!! ' + $('#tags').text());
+      alert('RIPARTI DA QUI!!!! ' + data['tags'] + ' ' + data['states'] );
     });
 
 

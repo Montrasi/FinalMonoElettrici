@@ -10,6 +10,7 @@ import { LoggingComponent } from './logging/logging.component';
 import { RegisterComponent } from './register/register.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { RentalComponent } from './rental/rental.component';
+import { VhcProblemComponent } from './vhc-problem/vhc-problem.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { RentalComponent } from './rental/rental.component';
     LoggingComponent,
     RegisterComponent,
     VehiclesComponent,
-    RentalComponent
+    RentalComponent,
+    VhcProblemComponent
   ],
   bootstrap: [
     AppComponent

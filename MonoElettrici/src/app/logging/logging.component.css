@@ -1,13 +1,3 @@
-/*.modal-open .modal {
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.fade.in {
-    opacity: 1;
-}
-*/
-
 .modal-header, h4, .close {
     background-color: #5cb85c;
     color:white !important;

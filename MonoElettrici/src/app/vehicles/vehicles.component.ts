@@ -37,38 +37,6 @@ export class VehiclesComponent implements OnInit {
 
   }
 
-  GetRental(data: Object) {
-
-    //console.log('GetRental Recharge ' + data);
-
-    $(document).ready(function() {
-      if($('#tags').text() == data['tags']){  $('#pippo').text('cacca'/*data['states']*/)}
-
-      //RIPARTI DA QUI!!!!
-
-      alert('RIPARTI DA QUI!!!! ' + data['tags'] + ' ' + data['states'] );
-    });
-
-
-
-    /*this.http.get<Object[]>(DirectToCod.AccessHttp_MonoOffice + 'getVeicoli')
-      .subscribe(data => {
-        this.data = data;
-
-        //console.log(this.data)
-
-      })
-
-    this.iconPosPattino = {
-      url: './assets/images/markerPattino.png',
-      scaledSize: {
-        width: 75,
-        height: 75
-      }
-    }*/
-
-  }
-
 
   ngOnInit() {
 

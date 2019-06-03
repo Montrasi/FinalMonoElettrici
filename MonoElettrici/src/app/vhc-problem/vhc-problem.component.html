@@ -1,3 +1,29 @@
-<p>
-  vhc-problem works!
-</p>
+<div class='modal-header'>
+	<h4 class='modal-title' id='modal-basic-title'>Problemi con uno dei nostri Monopattini?</h4>
+	<button type='button' style='margin-top: -3%' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
+</div>
+<div class='modal-body'>
+  <form>
+    <div class='form-group'>
+      <div class='input-group' >
+            <div class="form-group">
+              <label for="usrname">Inserisci il tag del monopattino</label>
+              <input #tags type="text" class="form-control" placeholder='Inserisci il tag' required>
+            </div>
+            <div class="form-group">
+              <label for="psw">seleziona il problema riscontrato</label>
+              <select #selected required>
+                <option value="manca il sellino">manca il sellino</option>
+                <option value="cos'è il monopattino">cos'è il monopattino</option>
+                <option value="ma che ci faccio qua?">ma che ci faccio qua?</option>
+                <option value="Salve sono il tuo prof di sistemi">Salve sono il tuo prof di sistemi</option>
+              </select>
+            </div>
+      </div>
+    </div>
+    <div class='modal-footer'>
+      <p>{{result}}</p>
+      <input type='submit' class='btn btn-default' (click)='onClickSend(tags, selected)' value='Invia'>
+    </div>
+  </form>
+</div>

@@ -4,7 +4,6 @@ import { AppComponent } from '../app.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import * as DirectToCod from '../StringHTTP_ToCodeny';
-//import * as $ from 'jquery';
 
 @Component({
   selector: 'app-logging',

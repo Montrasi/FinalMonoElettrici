@@ -94,7 +94,7 @@ export class RentalComponent implements OnInit {
   }
 
 
-a:any;
+  a: any;
   onCalcRent(data: any) {
 
     data.forEach(element => {
@@ -106,12 +106,12 @@ a:any;
 
     this.a = this.currentDayTimes[0] + " " + this.currentDayTimes[1]
 
-    console.log(this.currentDayTimes[1].getTime() +  " "  + this.currentTime.getTime())
+    console.log(this.currentDayTimes[1].getTime() + " " + this.currentTime.getTime())
 
     let currentDiff = this.currentDayTimes[1].getTime() - this.currentTime.getTime()
     console.log(currentDiff)
 
-this.message = new alert("RIPARTI DA QUI!!!!");
+    this.message = new alert("RIPARTI DA QUI!!!!");
 
 
     //this.message = new alert("Il costo del noleggio e': " + this.currentDiff + " euro");

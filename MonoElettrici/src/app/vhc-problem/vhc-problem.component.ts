@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -12,10 +12,12 @@ import * as DirectToCod from '../StringHTTP_ToCodeny';
 })
 export class VhcProblemComponent implements OnInit {
 
+  @Input() datas: Object;
+ 
   result: any;
   public message;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { console.log(this.datas) }
 
   onClickSend(tags: HTMLInputElement, selProb: HTMLInputElement): boolean {
 
@@ -42,7 +44,6 @@ export class VhcProblemComponent implements OnInit {
     return false;
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

@@ -1,13 +1,11 @@
+
 <agm-marker *ngFor='let value of data' [latitude]='value.pos[0].lat' [longitude]='value.pos[0].lng' [iconUrl]=iconPosPattino>
 	<agm-info-window>
     <b id='tags'>Monopattito: {{value.tag}}</b>
     <h3><b> {{value.stateVhc}} </b></h3>
     <p id='states'>status: {{value.state}}</p>
     <app-rental [value]=value></app-rental>
-
-
-
   </agm-info-window>
 
+<app-vhc-problem [datas]=value></app-vhc-problem>
 </agm-marker>
-

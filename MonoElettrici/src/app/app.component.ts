@@ -1,7 +1,5 @@
 import { Component } from '@angular/core'
 
-import * as $ from 'jquery'
-
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
@@ -11,29 +9,48 @@ export class AppComponent {
   name = 'Angular'
 
   Accedi: string
-  notDisable: boolean
+  notDisable: boolean; logIn: boolean; logOut: boolean;
 
-  constructor() { }
+  constructor() { this.logIn = true; this.logOut = false }
 
   messageEvent(Currentuser: string) {
-    //console.log('Ciaooooo ' + Currentuser)
     this.Accedi = Currentuser
+
+    this.logIn = false;
+    this.logOut = true;
+
+  }
+
+  onClickLogOut() {
+
+    console.log('risettiamo il localstorage');
+
+    this.Accedi = 'Accedi'
+    localStorage.setItem('currentUser', null)
+
+    this.logIn = true;
+    this.logOut = false;
+
   }
 
   ngOnInit() {
 
     this.Accedi = localStorage.getItem('currentUser')
-    console.log('caiooooooooooooo ' + this.Accedi)
 
-    if (this.Accedi == null) {
+    if (this.Accedi == 'null') {
+
+      this.logIn = true;
+      this.logOut = false;
+
       this.Accedi = 'Accedi'
       this.notDisable = false
     } else {
       this.notDisable = false
+
+      this.logIn = false;
+      this.logOut = true;
+
     }
-
-    $(document).ready(function() { })
-
   }
 
 }

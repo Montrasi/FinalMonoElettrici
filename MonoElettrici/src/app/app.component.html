@@ -3,11 +3,12 @@
 
 
 	<div class=dropdown>
-		<button class='btn btn-secondary dropdown-toggle' type=button data-toggle=dropdown> Devo trovare un nome(WIP) </button>
-    <ul class=dropdown-menu dropdown-menu-right>
+		<button class='btn btn-secondary dropdown-toggle' type=button data-toggle=dropdown> Info&Accesso </button>
+    <ul class='dropdown-menu dropdown-menu-right'>
       <li class=dropdown-header>salve</li>
-      <li><a href=# data-toggle='modal' data-target='#modal-1'>{{Accedi}}</a></li>
-      <li><a href=#>Cerca in zona</a></li>
+      <li *ngIf=logIn><a href=# data-toggle='modal' data-target='#modal-1'>{{Accedi}}</a></li>
+      <li *ngIf=logOut><a href=# (click)=onClickLogOut()>Disconettiti</a></li>
+      <li><a href=# data-toggle='modal' data-target='#modal-prob'>Segnala Malfunzionamento</a></li>
       <li class=divider></li>
       <li class=dropdown-header>References</li>
       <li><a href=#>About Us</a></li>
@@ -40,11 +41,6 @@
   </div>
 </div>
 
-
-
-	<div>
-		<a href=# data-toggle='modal' data-target='#modal-prob'>saddsa</a>
-	</div>
 	<div class='modal' id=modal-prob>
 		<div class=modal-dialog>
 			<div class=modal-content>

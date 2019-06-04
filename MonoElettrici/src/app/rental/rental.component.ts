@@ -24,20 +24,18 @@ export class RentalComponent implements OnInit {
 
   btnVwYes: boolean; btnVwNot: boolean;
 
-  constructor(private http: HttpClient, private vhcComp: VehiclesComponent) {
+  constructor(private http: HttpClient) {
     this.btnVwYes = true;
     this.btnVwNot = false;
   }
-  //if(this.value.state == false ) { this.Rental == 'Noleggia' } else { this.Rental == 'Fine noleggio' }
 
 
   onRental() {
     this.currentUser = localStorage.getItem('currentUser')
-    //console.log(this.currentUser);
+    console.log(this.currentUser);
 
 
-    if (this.currentUser != null) {
-      //console.log('riconosco che ti sei registrato!' + this.value.state);
+    if (this.currentUser != 'null') {
       if (this.value.stateVhc == 'NOLEGGIA') {
 
         this.value.stateVhc = 'NOLEGGIATO'
@@ -104,17 +102,6 @@ export class RentalComponent implements OnInit {
     var temp = new Date();
     this.currentDayTimes = temp.toLocaleString().split(',')
 
-    this.a = this.currentDayTimes[0] + " " + this.currentDayTimes[1]
-
-    console.log(this.currentDayTimes[1].getTime() + " " + this.currentTime.getTime())
-
-    let currentDiff = this.currentDayTimes[1].getTime() - this.currentTime.getTime()
-    console.log(currentDiff)
-
-    this.message = new alert("RIPARTI DA QUI!!!!");
-
-
-    //this.message = new alert("Il costo del noleggio e': " + this.currentDiff + " euro");
 
   }
 

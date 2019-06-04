@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -12,35 +12,37 @@ import * as DirectToCod from '../StringHTTP_ToCodeny';
 })
 export class VhcProblemComponent implements OnInit {
 
-  @Input() datas: Object;
- 
   result: any;
   public message;
+  data: Object[];
 
-  constructor(private http: HttpClient) { console.log(this.datas) }
+  constructor(public http: HttpClient) {
+
+
+    this.http.get<Object[]>(DirectToCod.AccessHttp_MonoOffice + 'getVeicoli')
+      .subscribe(data => {
+        this.data = data;
+      })
+
+  }
 
   onClickSend(tags: HTMLInputElement, selProb: HTMLInputElement): boolean {
 
-
-    if (tags.value == '' || selProb.value == '') {
-      this.result = ('Tutti i campi sono obbligatori!');
-      console.log(this.result)
-    } else {
-
-      this.http.post(DirectToCod.AccessHttp_MonoPattini + 'sendProblem', JSON.stringify({
-        'tag': tags.value,
-        'selProb': selProb.value
-      }),
-        {
-          headers: new HttpHeaders({
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest',
-            'Access-Control-Allow-Origin': '*'
-          })
-        }).subscribe(data => {
-          this.message = new alert('Segnalazione avvenuta con successo!!');
+    this.http.post(DirectToCod.AccessHttp_MonoPattini + 'sendProblem', JSON.stringify({
+      'tag': tags.value,
+      'selProb': selProb.value
+    }),
+      {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+          'Access-Control-Allow-Origin': '*'
         })
-    }
+      }).subscribe(data => {
+        console.log(data)
+        this.message = new alert('Segnalazione avvenuta con successo!!');
+      })
+
     return false;
   }
 

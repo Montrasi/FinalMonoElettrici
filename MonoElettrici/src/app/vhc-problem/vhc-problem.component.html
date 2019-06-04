@@ -7,14 +7,13 @@
     <div class='form-group'>
       <div class='input-group' >
             <div class="form-group">
-              <label for="usrname">Seleziona il tag del monopattino</label>
+              <label for="usrname">Seleziona il tag del monopattino</label><br>
               <select #selected1 required>
-                <option *ngFor='let value of datas'>{{value.tag}}</option>
+                <option *ngFor='let value of data'>{{value.tag}}</option>
               </select>
-              <!-- <input #tags type="text" class="form-control" placeholder='Inserisci il tag' required> -->
             </div>
             <div class="form-group">
-              <label for="psw">seleziona il problema riscontrato</label>
+              <label for="psw">Seleziona il problema riscontrato</label><br>
               <select #selected2 required>
                 <option value="manca il sellino">manca il sellino</option>
                 <option value="cos'è il monopattino">cos'è il monopattino</option>
@@ -26,7 +25,7 @@
     </div>
     <div class='modal-footer'>
       <p>{{result}}</p>
-      <input type='submit' class='btn btn-default' (click)='onClickSend(selected1, selected)' value='Invia'>
+      <input type='submit' class='btn btn-default' (click)='onClickSend(selected1, selected2)' value='Invia'>
     </div>
   </form>
 </div>
